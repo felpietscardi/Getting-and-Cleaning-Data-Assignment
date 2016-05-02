@@ -14,6 +14,6 @@ The **run_analusis.R** does the following:
 4. Reading the **test** dataset: **X_test.txt**, **y_test.txt** and **subject_test.txt**, combining them into one dataset and apply the appropriate headers.
 5. Merge the train and test dataset together, then remove the duplicate columns.
 6. Find all the columns with mean() and std().
-7. Replace the activities variables with a descriptive label.
+7. Replace the activities variables with a descriptive label and make the columns more descriptive
 8. Create a tidy data by grouping the dataset by subjects and activities, then summarising each of the columns.
 9. Create a file from the tidy data called **tidy_data.txt** in the working directory.

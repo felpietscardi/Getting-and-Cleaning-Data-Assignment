@@ -54,6 +54,19 @@ extracted_data  <- cbind(merged_data[, 1:2], extracted_data)
 # using the activities labels
 extracted_data[, 2] <- activity_labels[extracted_data[, 2], 2]
 
+# make the column name more descriptive
+names(extracted_data) <- gsub("^t", "time", names(extracted_data))
+names(extracted_data) <- gsub("^f", "frequency", names(extracted_data))
+names(extracted_data) <- gsub("BodyBody", "Body",names(extracted_data))
+names(extracted_data) <- gsub("Mag", "Magnitude",names(extracted_data))
+names(extracted_data) <- gsub(".mean", "-mean",names(extracted_data))
+names(extracted_data) <- gsub(".std", "-std",names(extracted_data))
+names(extracted_data) <- gsub("mean..", "mean()",names(extracted_data))
+names(extracted_data) <- gsub("std..", "std()",names(extracted_data))
+names(extracted_data) <- gsub("Acc", "Acceleration",names(extracted_data))
+names(extracted_data) <- gsub("mean", "Mean",names(extracted_data))
+names(extracted_data) <- gsub("std", "StandardDeviation",names(extracted_data))
+
 # creating a tidy data by grouping the data set by subjects and activities, then summarising each of the columns
 tidy_data <-  group_by(extracted_data, subjects, activities) %>% summarise_each(funs(mean))
 
